@@ -72,7 +72,6 @@ if(require.main == module) {
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         .option('-u, --url <html_url>', 'url to index.html', clone(assertUrlExists))
         .parse(process.argv);
-    console.log(program.url);
     restler.get(program.url).on('complete', function(result) {
         if (result instanceof Error) {
             console.log("%s does not exist. Existing.", program.url);
